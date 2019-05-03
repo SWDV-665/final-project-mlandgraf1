@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My Plants
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--plant gallery will be displayed in grid with 3 photos per line-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let photo of photoService.photos">
+        <img [src]="photo.data"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!--When pressed, the button will pull up the device's camera-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="photoService.startCamera()" color="dark" icon-start>
+        <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
